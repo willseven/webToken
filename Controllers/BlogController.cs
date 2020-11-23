@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace TodoApi.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BlogController : ControllerBase
