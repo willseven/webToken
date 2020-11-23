@@ -79,13 +79,15 @@ namespace TodoApi
 
             app.UseEndpoints(endpoints =>
             {
+                
                 endpoints.MapControllers();
 
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Blog}/{action=Index}/{Id?}"
                 );
-                endpoints.MapFallbackToController("Index", "Blog");
+                //endpoints.MapDefaultControllerRoute();
+                // endpoints.MapFallbackToController("Index", "Blog");
             });
         }
     }
