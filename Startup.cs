@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//using ApiOrder_master.Helpers;
 using ApiWeb_master.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +49,17 @@ namespace TodoApi
             {
                 endpoints.MapControllers();
             });
+
+            // global cors policy
+            app.UseCors(x => x
+                .AllowAnyOrigin()
+                .AllowAnyMethod()
+                .AllowAnyHeader());
+
+            // custom jwt auth middleware
+            //app.UseMiddleware<JwtMiddleware>();
+
+            app.UseEndpoints(x => x.MapControllers());
         }
     }
 }
